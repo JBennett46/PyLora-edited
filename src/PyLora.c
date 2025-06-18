@@ -171,7 +171,7 @@ init(PyObject *self)
 {
    int res = lora_init();
    PyEval_InitThreads();                     // it seems to be necessary for using the global interpreter lock (GIL)
-   return PyInt_FromLong(res);
+   return PyLong_FromLong(res);
 }
 
 static PyObject *
@@ -179,7 +179,7 @@ packet_rssi(PyObject *self)
 {
    if(!check()) return NULL;
    int res = lora_packet_rssi();
-   return PyInt_FromLong(res);
+   return PyLong_FromLong(res);
 }
 
 static PyObject *
